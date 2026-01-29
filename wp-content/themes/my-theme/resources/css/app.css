@@ -1,0 +1,6 @@
+@import "tailwindcss" theme(static);
+
+@plugin "@tailwindcss/typography";
+
+@source "../views/";
+@source "../../app/";
