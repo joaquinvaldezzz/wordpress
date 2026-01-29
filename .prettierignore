@@ -1,0 +1,6 @@
+bun.lock
+pnpm-lock.yaml
+yarn.lock
+
+**/vendor
+wp-content/plugins
