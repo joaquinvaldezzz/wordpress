@@ -5,7 +5,6 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "format": "prettier --write .",
     "translate": "npm run translate:pot && npm run translate:update",
     "translate:compile": "npm run translate:mo && npm run translate:js",
     "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
@@ -14,13 +13,10 @@
     "translate:update": "for file in ./resources/lang/*.po; do wp i18n update-po ./resources/lang/sage.pot $file; done"
   },
   "devDependencies": {
-    "@prettier/plugin-php": "^0.24.0",
     "@roots/vite-plugin": "^1.0.2",
-    "@shufo/prettier-plugin-blade": "^1.16.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.0.9",
     "laravel-vite-plugin": "^1.2.0",
-    "prettier": "^3.8.1",
     "tailwindcss": "^4.0.9",
     "vite": "^6.2.0"
   },

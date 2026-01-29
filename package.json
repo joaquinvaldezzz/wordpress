@@ -1,0 +1,25 @@
+{
+  "name": "wordpress",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/joaquinvaldezzz/wordpress#readme",
+  "bugs": {
+    "url": "https://github.com/joaquinvaldezzz/wordpress/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaquinvaldezzz/wordpress.git"
+  },
+  "license": "ISC",
+  "author": "John Joaquin A. Valdez <valdez.johnjoaquin.13579@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.24.0",
+    "@shufo/prettier-plugin-blade": "^1.16.1",
+    "prettier": "^3.8.1"
+  }
+}
