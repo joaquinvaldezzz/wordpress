@@ -4,4 +4,5 @@ bun.lock
 pnpm-lock.yaml
 yarn.lock
 
+**/build
 **/vendor
