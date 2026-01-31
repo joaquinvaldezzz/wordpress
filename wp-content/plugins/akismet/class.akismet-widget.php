@@ -9,73 +9,78 @@
 /**
  * Akismet Widget Class
  */
-class Akismet_Widget extends WP_Widget {
+class Akismet_Widget extends WP_Widget
+{
+  /**
+   * Constructor
+   */
+  function __construct()
+  {
+    parent::__construct("akismet_widget", __("Akismet Widget", "akismet"), [
+      "description" => __("Display the number of spam comments Akismet has caught", "akismet"),
+    ]);
+  }
 
-	/**
-	* Constructor
-	*/
-	function __construct() {
-		parent::__construct(
-			'akismet_widget',
-			__( 'Akismet Widget', 'akismet' ),
-			array( 'description' => __( 'Display the number of spam comments Akismet has caught', 'akismet' ) )
-		);
-	}
-
-	/**
-	 * Outputs the widget settings form
-	 *
-	 * @param array $instance The widget options
-	 */
-	public function form( $instance ) {
-		if ( $instance && isset( $instance['title'] ) ) {
-			$title = $instance['title'];
-		} else {
-			$title = __( 'Spam Blocked', 'akismet' );
-		}
-		?>
+  /**
+   * Outputs the widget settings form
+   *
+   * @param array $instance The widget options
+   */
+  public function form($instance)
+  {
+    if ($instance && isset($instance["title"])) {
+      $title = $instance["title"];
+    } else {
+      $title = __("Spam Blocked", "akismet");
+    } ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'akismet' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<label for="<?php echo $this->get_field_id(
+     "title",
+   ); ?>"><?php esc_html_e("Title:", "akismet"); ?></label>
+			<input class="widefat" id="<?php echo esc_attr(
+     $this->get_field_id("title"),
+   ); ?>" name="<?php echo esc_attr($this->get_field_name("title")); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 
 		<?php
-	}
+  }
 
-	/**
-	 * Updates the widget settings
-	 *
-	 * @param array $new_instance New widget instance
-	 * @param array $old_instance Old widget instance
-	 * @return array Updated widget instance
-	 */
-	public function update( $new_instance, $old_instance ) {
-		$instance          = array();
-		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-		return $instance;
-	}
+  /**
+   * Updates the widget settings
+   *
+   * @param array $new_instance New widget instance
+   * @param array $old_instance Old widget instance
+   * @return array Updated widget instance
+   */
+  public function update($new_instance, $old_instance)
+  {
+    $instance = [];
+    $instance["title"] = sanitize_text_field($new_instance["title"]);
+    return $instance;
+  }
 
-	/**
-	 * Outputs the widget content
-	 *
-	 * @param array $args Widget arguments
-	 * @param array $instance Widget instance
-	 */
-	public function widget( $args, $instance ) {
-		$count = get_option( 'akismet_spam_count' );
+  /**
+   * Outputs the widget content
+   *
+   * @param array $args Widget arguments
+   * @param array $instance Widget instance
+   */
+  public function widget($args, $instance)
+  {
+    $count = get_option("akismet_spam_count");
 
-		if ( ! isset( $instance['title'] ) ) {
-			$instance['title'] = __( 'Spam Blocked', 'akismet' );
-		}
+    if (!isset($instance["title"])) {
+      $instance["title"] = __("Spam Blocked", "akismet");
+    }
 
-		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'];
-			echo esc_html( $instance['title'] );
-			echo $args['after_title'];
-		}
-		?>
+    echo $args["before_widget"];
+    if (!empty($instance["title"])) {
+      echo $args["before_title"];
+      echo esc_html($instance["title"]);
+      echo $args["after_title"];
+    }
+    ?>
 
 		<style>
 			.a-stats {
@@ -138,40 +143,36 @@ class Akismet_Widget extends WP_Widget {
 
 		<div class="a-stats">
 			<a href="https://akismet.com?utm_source=akismet_plugin&amp;utm_campaign=plugin_static_link&amp;utm_medium=in_plugin&amp;utm_content=widget_stats" class="a-stats__link" target="_blank" rel="noopener" style="background-color: var(--akismet-color-mid-green); color: var(--akismet-color-white);">
-				<?php
-
-				echo wp_kses(
-					sprintf(
-					/* translators: The placeholder is the number of pieces of spam blocked by Akismet. */
-						_n(
-							'<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>',
-							'<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>',
-							$count,
-							'akismet'
-						),
-						number_format_i18n( $count )
-					),
-					array(
-						'strong' => array(
-							'class' => true,
-						),
-					)
-				);
-
-				?>
+				<?php echo wp_kses(
+      sprintf(
+        /* translators: The placeholder is the number of pieces of spam blocked by Akismet. */
+        _n(
+          '<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>',
+          '<strong class="count">%1$s spam</strong> blocked by <strong>Akismet</strong>',
+          $count,
+          "akismet",
+        ),
+        number_format_i18n($count),
+      ),
+      [
+        "strong" => [
+          "class" => true,
+        ],
+      ],
+    ); ?>
 			</a>
 		</div>
 
-		<?php
-		echo $args['after_widget'];
-	}
+		<?php echo $args["after_widget"];
+  }
 }
 
 /**
  * Register the Akismet widget
  */
-function akismet_register_widgets() {
-	register_widget( 'Akismet_Widget' );
+function akismet_register_widgets()
+{
+  register_widget("Akismet_Widget");
 }
 
-add_action( 'widgets_init', 'akismet_register_widgets' );
+add_action("widgets_init", "akismet_register_widgets");
