@@ -1,6 +1,7 @@
+**/*.min.css
+**/*.min.js
 bun.lock
 pnpm-lock.yaml
 yarn.lock
 
 **/vendor
-wp-content/plugins
