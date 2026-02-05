@@ -3,5 +3,5 @@
 @plugin "@tailwindcss/typography";
 
 body {
-  @apply prose mx-auto;
+  @apply mx-auto prose;
 }
