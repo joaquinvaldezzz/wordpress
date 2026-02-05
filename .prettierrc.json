@@ -1,7 +1,11 @@
 {
   "printWidth": 100,
   "singleQuote": false,
-  "plugins": ["@prettier/plugin-php", "@shufo/prettier-plugin-blade"],
+  "plugins": [
+    "@prettier/plugin-php",
+    "@shufo/prettier-plugin-blade",
+    "prettier-plugin-tailwindcss"
+  ],
   "overrides": [
     {
       "files": ["*.blade.php"],
@@ -12,5 +16,6 @@
     }
   ],
   "sortTailwindcssClasses": true,
-  "sortHtmlAttributes": "code-guide"
+  "sortHtmlAttributes": "code-guide",
+  "tailwindStylesheet": "wp-content/themes/my-theme/resources/css/app.css"
 }
