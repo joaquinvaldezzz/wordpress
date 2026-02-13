@@ -1,4 +1,4 @@
-<article @php(post_class("h-entry"))>
+<article @php(post_class("h-entry mx-auto max-w-prose px-4"))>
   <header>
     <h1 class="p-name">
       {!! $title !!}
@@ -7,7 +7,7 @@
     @include("partials.entry-meta")
   </header>
 
-  <div class="e-content">
+  <div class="e-content prose">
     @php(the_content())
   </div>
 

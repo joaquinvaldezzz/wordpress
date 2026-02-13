@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="banner container mx-auto px-4 py-4">
   <a class="brand" href="{{ home_url("/") }}">
     {!! $siteName !!}
   </a>
