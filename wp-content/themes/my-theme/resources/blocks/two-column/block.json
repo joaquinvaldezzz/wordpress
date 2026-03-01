@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/two-column",
+  "title": "Two Column",
+  "category": "design",
+  "icon": "columns",
+  "description": "A two-column layout block with editable inner content.",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "sage"
+}

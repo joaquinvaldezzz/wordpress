@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/hero",
+  "title": "Hero",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "A simple hero section with editable text and background image.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Build something people remember"
+    },
+    "subheading": {
+      "type": "string",
+      "default": "Highlight the promise, add a short explanation, and invite the click."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Start the journey"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"]
+  },
+  "textdomain": "sage"
+}

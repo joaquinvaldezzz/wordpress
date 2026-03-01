@@ -9,6 +9,30 @@ namespace App;
 use Illuminate\Support\Facades\Vite;
 
 /**
+ * Register custom blocks.
+ *
+ * @return void
+ */
+add_action("init", function () {
+    $blocks = glob(get_theme_file_path("resources/blocks/*/block.json"));
+
+    foreach ($blocks as $block) {
+        $name = basename(dirname($block));
+
+        register_block_type($block, [
+            "render_callback" => function ($attributes, $content) use ($name) {
+                return \Roots\view(
+                    "blocks.{$name}",
+                    $attributes + [
+                        "content" => $content,
+                    ],
+                )->render();
+            },
+        ]);
+    }
+});
+
+/**
  * Inject styles into the block editor.
  *
  * @return array

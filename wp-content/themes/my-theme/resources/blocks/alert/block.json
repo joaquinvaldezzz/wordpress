@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/alert",
+  "title": "Alert",
+  "category": "design",
+  "icon": "info",
+  "description": "A dismissible alert component with React inside.",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "enum": ["info", "success", "warning", "error"],
+      "default": "info"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "message": {
+      "type": "string",
+      "default": "This is an alert message."
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "sage"
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "my-theme/aprio-hero",
+  "title": "Aprio Hero",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "A hero section inspired by Aprio's design with headline, description, and dual CTAs.",
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": "Account for Anything™"
+    },
+    "description": {
+      "type": "string",
+      "default": "You know your business. But for everything you don't know about navigating finances, taxes, compliance, risk, and growth, we exist to help you account for it all – and anything else life throws at you."
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "default": "Contact Us"
+    },
+    "primaryButtonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "default": "Why Choose Us?"
+    },
+    "secondaryButtonUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "sage"
+}
